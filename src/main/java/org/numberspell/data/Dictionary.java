@@ -8,7 +8,7 @@ public class Dictionary {
 
     public static void load(){
         try {
-            Scanner scanner = new Scanner(new File("C:\\Users\\Smile\\Documents\\NetBeansProjects\\NumberSpell\\src\\numberspell\\wordList.txt"));
+            Scanner scanner = new Scanner(new File("src/main/dictionary.txt"));
             mDictionaryWords = new HashSet<>();
             mDictionaryWords.clear();
             while (scanner.hasNext()){
