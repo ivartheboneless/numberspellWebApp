@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--<link rel="icon" th:href="@{/favicon.png}" />-->
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
+
+    <title>numberSpell</title>
+</head>
+<body style="background-color:white;" >
+    <div class="navbar-fixed">
+        <nav>
+            <div class="container">
+                <a th:href="@{/}" class="brand-logo">numberSpell</a>
+                <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a th:href="@{/downloads}">Downloads</a></li>
+                    <li><a th:href="@{/faqs}">FAQs</a></li>
+                    <li><a th:href="@{/tips}">Tips</a></li>
+                </ul>
+                <ul id="mobile-nav" class="side-nav">
+                    <li><a th:href="@{/downloads}">Downloads</a></li>
+                    <li><a th:href="@{/faqs}">FAQs</a></li>
+                    <li><a th:href="@{/tips}">Tips</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div style="background-color:white;" class="container centre-align">
+        <center><h4 style="color:#896bb3; margin-top:1em; margin-bottom:0.2em;">Find out what memorable word your number spells!</h4></center>
+    </div>
+
+    <div style="background-color:white;" class="search-bar container">
+        <div class="row">
+            <div class="col s12">
+                <form action="/search" method="get" class="hoverable">
+                    <div class="input-field">
+                        <input name="number" type="search" placeholder="Enter number here..." required="required" autocomplete="off"/>
+                        <i class="material-icons">search</i>
+                    </div>
+                    <!--<div class="filterbox">-->
+                        <!--<input type="checkbox" id="test5"/>-->
+                        <!--<label for="test5">Filter Dictionary words</label>-->
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container " >
+        <em>
+            <center>
+                <p style="color:#896bb3;" class="flow-text card-panel purple lighten-5 hoverable" >
+                    The numberSpell search engine generates all possible word combinations corresponding to a number entered on a mobile phone's keypad.
+                </p>
+            </center>
+        </em>
+    </div>
+
+    <div style="background-color:white;" class="container centre-align">
+        <em>
+            <center>
+                <p class="flow-text" style="margin-top:4em; color:#d6c5ec; font-size: 16px; text-align:center;">
+                    Coming soon to IOS and Android
+                </p>
+            </center>
+        </em>
+    </div>
+
+     <footer style="position:fixed; bottom:0; left:0;  right:0;" class="page-footer">
+         <div >
+             <p style="color:#d6c5ec; font-size: 12px; text-align:center;" >&copy; 2016 Muhammad Ammar Aamir </p>
+         </div>
+     </footer>
+
+<script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
+<script th:src="@{/vendor/materialize/js/materialize.js}"></script>
+<script th:src="@{/app.js}"></script>
+</body>
+</html>
