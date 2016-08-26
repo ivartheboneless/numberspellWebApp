@@ -20,3 +20,10 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
+
+
+
+//For deployment to heroku
+task stage {
+    dependsOn build
+}
