@@ -77,7 +77,7 @@ public class NumberspellController {
 
                 //For bigger strings, we look for more than one word in that string
                 if(w.length() > 5) {
-                    for(int i = 1; i < w.length()-2; i++) {
+                    for(int i = 1; i < w.length(); i++) {
                         String temp1 = w.substring(0, i);
                         String temp2 = w.substring(i, w.length());
                         if(Dictionary.getDictionaryWordList().contains(temp1)) {
