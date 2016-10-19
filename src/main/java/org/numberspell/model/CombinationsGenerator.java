@@ -7,6 +7,8 @@ public class CombinationsGenerator {
      *The following arrays represent keys 2-9 on a mobile keypad and their
      *corresponding letters.
      */
+    private char[] mKeyZero = {'O', '_', '_', '_'};
+    private char[] mKeyOne = {'I', '_', '_', '_'};
     private char[] mKeyTwo = {'a', 'b', 'c', '_'};
     private char[] mKeyThree = {'d', 'e', 'f', '_'};
     private char[] mKeyFour = {'g', 'h', 'i', '_'};
@@ -25,7 +27,11 @@ public class CombinationsGenerator {
         //the following generates a list of char arrays using the memeber key arrays
         List<char[]> listOfCharArrays = new ArrayList<>(numOfDigitsEntered);
         for(char number : numberEnteredArray) {
-            if(number == '2') {
+            if(number == '0') {
+                listOfCharArrays.add(mKeyZero);
+            } else if(number == '1') {
+                listOfCharArrays.add(mKeyOne);
+            } else if(number == '2') {
                 listOfCharArrays.add(mKeyTwo);
             } else if(number == '3') {
                 listOfCharArrays.add(mKeyThree);

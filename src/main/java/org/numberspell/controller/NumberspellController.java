@@ -34,7 +34,9 @@ public class NumberspellController {
             //Invalid entry case: chars other than 2-9 entered
             char[] numberArray = number.toCharArray();
             for(char c : numberArray) {
-                if(c != '2' &&
+                if(     c != '0' &&
+                        c != '1' &&
+                        c != '2' &&
                         c != '3' &&
                         c != '4' &&
                         c != '5' &&
@@ -43,7 +45,7 @@ public class NumberspellController {
                         c != '8' &&
                         c != '9') {
                     isInputValid = false;
-                    invalidInputMessage = "Only digits 2 - 9 are valid. Please try again...";
+                    invalidInputMessage = "Only numbers are valid. Please try again...";
                 }
             }
         }
@@ -68,7 +70,7 @@ public class NumberspellController {
             for(int index = 0; index < phonewords.size(); index++) {
                 String w = phonewords.get(index);
                 //If string is in dictionary then no need to remove that string
-                if(Dictionary.getDictionaryWordList().contains(w)) {
+                if(Dictionary.getDictionaryWordList().contains(w.toLowerCase())) {
                     continue;
                 }
 
@@ -80,8 +82,8 @@ public class NumberspellController {
                     for(int i = 1; i < w.length(); i++) {
                         String temp1 = w.substring(0, i);
                         String temp2 = w.substring(i, w.length());
-                        if(Dictionary.getDictionaryWordList().contains(temp1)) {
-                            if(Dictionary.getDictionaryWordList().contains(temp2)) {
+                        if(Dictionary.getDictionaryWordList().contains(temp1.toLowerCase())) {
+                            if(Dictionary.getDictionaryWordList().contains(temp2.toLowerCase())) {
                                 compoundWord = temp1 + "-" + temp2;
                                 validPhonewords.set(validPhonewords.indexOf(w), compoundWord);
                                 compoundWordFound = true;
