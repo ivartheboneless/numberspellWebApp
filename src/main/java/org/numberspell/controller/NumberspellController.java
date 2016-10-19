@@ -56,12 +56,49 @@ public class NumberspellController {
             phonewords = generator.getPhonewords();
 
             //parsing valid phonewords
+//            validPhonewords = new ArrayList<>(phonewords);
+//            for(String word : phonewords) {
+//                if(!Dictionary.getDictionaryWordList().contains(word)) {
+//                    validPhonewords.remove(word);
+//                }
+//            }
+
+            boolean compoundWordFound = false;
             validPhonewords = new ArrayList<>(phonewords);
-            for(String word : phonewords) {
-                if(!Dictionary.getDictionaryWordList().contains(word)) {
-                    validPhonewords.remove(word);
+            for(int index = 0; index < phonewords.size(); index++) {
+                String w = phonewords.get(index);
+                //If string is in dictionary then no need to remove that string
+                if(Dictionary.getDictionaryWordList().contains(w)) {
+                    continue;
                 }
+
+                String compoundWord = w;
+                compoundWordFound = false;
+
+                //For bigger strings, we look for more than one word in that string
+                if(w.length() > 5) {
+                    for(int i = 1; i < w.length()-2; i++) {
+                        String temp1 = w.substring(0, i);
+                        String temp2 = w.substring(i, w.length());
+                        if(Dictionary.getDictionaryWordList().contains(temp1)) {
+                            if(Dictionary.getDictionaryWordList().contains(temp2)) {
+                                compoundWord = temp1 + "-" + temp2;
+                                validPhonewords.set(validPhonewords.indexOf(w), compoundWord);
+                                compoundWordFound = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if(!compoundWordFound) {
+                    validPhonewords.remove(w);
+                }
+
             }
+
+
+
         } else {
             validPhonewords = new ArrayList<>();
             phonewords = new ArrayList<>();
